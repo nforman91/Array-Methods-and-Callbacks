@@ -56,7 +56,7 @@ function getYears(data, getFinalscb) {
     return Years;
 }
 
-console.log('task 3:', getYears(fifaData, getFinals(fifaData)));
+console.log('task 3:', getYears(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -76,7 +76,7 @@ function getWinners(data, getFinalscb){
     return winners;
 }
 
-console.log('task 4:', getWinners(fifaData, getFinalscb));   
+console.log('task 4:', getWinners(fifaData, getFinals));   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -91,10 +91,10 @@ hint: the strings returned need to exactly match the string in step 4.
 // probably use map here
 
 function getWinnersByYear(data, getYearscb, getWinnerscb) {
-    const winners = getWinnerscb(data, getFinals);
-    console.log('winners', winners);
     const years = getYearscb(data, getFinals);
     console.log('years', years);
+    const winners = getWinnerscb(data, getFinals);
+    console.log('winners', winners);
     return winners.map(function(item, index){
         return `In ${years[index]}, ${item} won the world cup!`;
     })
