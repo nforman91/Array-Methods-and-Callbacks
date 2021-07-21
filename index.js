@@ -131,14 +131,14 @@ Create a function called `getCountryWins` that takes the parameters `data` and `
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-// function getCountryWins(data, initials) {
-//     const filteredArray = data.filter(item => initials === item['Home Team Initials'] || initials === item['Away Team Initials']);
-//     console.log(filteredArray);
-//     const worldCupWins = filteredArray.filter()
-    
-// }
+function getCountryWins(array, initials){
+    const worldCupFinal = array.filter(item => item.Stage === 'Final');
+    const winnerInitials = worldCupFinal.map(item => item['Home Team Goals'] > item['Away Team Goals'] ? item['Home Team Initials'] : item['Away Team Initials']);
+    const winnerCount = winnerInitials.filter(item => item === initials);
+    return winnerCount.length;
+}
 
-// console.log('stretch 1:', getCountryWins(fifaData, 'GER'));
+console.log('stretch 1:', getCountryWins(fifaData, 'BRA'));
 
 /* 💪💪💪💪💪 Stretch 2: 💪💪💪💪💪 
 Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
@@ -148,8 +148,6 @@ function getGoals(/* code here */) {
     /* code here */
 
 }
-
-// console.log('stretch 2', getGoals());
 
 
 /* 💪💪💪💪💪 Stretch 3: 💪💪💪💪💪
@@ -161,7 +159,6 @@ function badDefense(/* code here */) {
 
 }
 
-// console.log('stretch 3:', badDefense());
 
 /* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
 
